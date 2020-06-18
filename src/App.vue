@@ -40,6 +40,9 @@
     <v-content>
       <FormPatient/>
       <ListPatient/>
+      <v-overlay :value="overlay">
+      <v-progress-circular indeterminate size="64"></v-progress-circular>
+    </v-overlay>
     </v-content>
   </v-app>
 </template>
@@ -48,6 +51,7 @@
 
 import FormPatient from './components/FormPatient';
 import ListPatient from './components/ListPatient';
+import {mapState} from 'vuex'
 
 export default {
   name: 'App',
@@ -55,6 +59,9 @@ export default {
   components: {
     FormPatient,
     ListPatient
+  },
+  computed:{
+    ...mapState(['overlay'])
   },
 
   data: () => ({
